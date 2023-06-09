@@ -15,7 +15,6 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-
 }
 
 repositories {
@@ -29,10 +28,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.register('hello'){
-	doLast {
-		println 'Hello World!'
-	}
+tasks.register('loadGitHubToken'){
+	scmVersion.repository.customUsername.set('Lazare-Ge')
+	scmVersion.repository.customPassword.set('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')
+	println scmVersion.repository.customUsername.get()
+	println scmVersion.repository.customPassword.get()
 }
 
 tasks.named('test') {
