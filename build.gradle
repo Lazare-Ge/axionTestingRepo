@@ -35,6 +35,10 @@ tasks.register('loadGitHubToken'){
 	println scmVersion.repository.customPassword.get()
 }
 
+tasks.named('release') {
+	dependsOn loadGitHubToken
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
