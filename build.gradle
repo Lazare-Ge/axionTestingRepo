@@ -42,3 +42,4 @@ tasks.named('release') {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+// some comment here
