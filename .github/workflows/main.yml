@@ -17,12 +17,12 @@ jobs:
       - name: Check for patch
         if: ${{ github.event.label.name == 'patch' }}
         run: |
-          git status
-          git add .
-          git commit -m "commit from github runner"
-          ./gradlew release -Prelease.versionIncrementer=incrementPatch
           git --config --global user.name "Lazare-Ge"
           git --config --global user.email "lazare.giorgobiani.lg@gmail.com
+          git status
+          git add -A
+          git commit -m "commit from github runner"
+          ./gradlew release -Prelease.versionIncrementer=incrementPatch
           git push --tags
       - name: Check for minor
         if: ${{ github.event.label.name == 'minor' }}
