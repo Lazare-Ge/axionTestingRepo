@@ -17,8 +17,8 @@ jobs:
         run: echo This is patch label
       - name: Check for minor
         if: ${{ github.event.label.name == 'minor' }}
-        run: echo ${{ github.event.label.name }}
-      - name: echo This is minor label
+        run: echo This is minor label
+      - name: Check for major
         if: ${{ github.event.label.name == 'major' }}
         run: echo This is major label
 
