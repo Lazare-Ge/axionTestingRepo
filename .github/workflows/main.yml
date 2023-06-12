@@ -1,10 +1,17 @@
 on:
-  push:
-  
+  pull_request:
+    types:
+      - labeled
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo Hello
-    
+      - name: Say Something
+        run: echo Hello
+      - name: Check label messsage
+        run: echo ${{ github.event.label.name }}
+

@@ -8,6 +8,7 @@ public class AxionTestingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AxionTestingApplication.class, args);
+		// Adding some functionality
 	}
 
 }
