@@ -6,10 +6,9 @@ plugins {
 }
 
 group = 'com.lazroproj'
-version = '0.0.1-SNAPSHOT'
+project.version = scmVersion.version
 sourceCompatibility = '17'
 
-project.version = scmVersion.version
 
 configurations {
 	compileOnly {
@@ -28,16 +27,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.register('loadGitHubToken'){
-	scmVersion.repository.customUsername.set('Lazare-Ge')
-	scmVersion.repository.customPassword.set('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')
-	println scmVersion.repository.customUsername.get()
-	println scmVersion.repository.customPassword.get()
+scmVersion {
+	localOnly.set(true)
 }
 
-tasks.named('release') {
-	dependsOn loadGitHubToken
-}
 
 tasks.named('test') {
 	useJUnitPlatform()
