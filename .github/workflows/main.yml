@@ -12,6 +12,13 @@ jobs:
       - uses: actions/checkout@v3
       - name: Say Something
         run: echo Hello
-      - name: Check label messsage
+      - name: Check for patch
+        if: ${{ github.event.label.name == 'patch' }}
+        run: echo This is patch label
+      - name: Check for minor
+        if: ${{ github.event.label.name == 'minor' }}
         run: echo ${{ github.event.label.name }}
+      - name: echo This is minor label
+        if: ${{ github.event.label.name == 'major' }}
+        run: echo This is major label
 
